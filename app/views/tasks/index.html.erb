@@ -1,10 +1,13 @@
 <h1>タスク一覧</h1>
 
 <ul>
+    <% num=1%>
     <%@tasks.each do |task|%>
-    <li><%=link_to task.id ,task%>:
+    <li><%=link_to num ,task%>:
         <%=task.content%>:<%=task.status%></li>
+        <%num+=1%>
     <%end%>
 </ul>
+
 
 <%=link_to '新規タスクの追加' ,new_task_path%>

@@ -11,7 +11,17 @@
 
   <body>
     <div class="container">
-      <%=render 'layouts/flash_tasks'%>
+      <p><%=render 'layouts/flash_tasks'%></p>
+      <%=link_to 'tasklist', root_path%>
+      <%if logged_in?%>
+      <%=link_to 'My profile',user_path(current_user)%>
+      <%= link_to 'Logout', logout_path, method: :delete %>
+
+      <%else%>
+      <%=link_to 'signup', signup_path%>
+      <%=link_to 'login', login_path%>
+      <%end%>
+      
       <%= yield %>
     </div>
     
