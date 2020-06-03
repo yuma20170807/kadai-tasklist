@@ -14,7 +14,6 @@
       <p><%=render 'layouts/flash_tasks'%></p>
       <%=link_to 'tasklist', root_path%>
       <%if logged_in?%>
-      <%=link_to 'My profile',user_path(current_user)%>
       <%= link_to 'Logout', logout_path, method: :delete %>
 
       <%else%>
