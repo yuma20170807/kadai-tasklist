@@ -11,7 +11,7 @@
 
   <body>
     <div class="container">
-      <p><%=render 'layouts/flash_tasks'%></p>
+      <p><%=render 'layouts/flash_messages'%></p>
       <%=link_to 'tasklist', root_path%>
       <%if logged_in?%>
       <%= link_to 'Logout', logout_path, method: :delete %>
