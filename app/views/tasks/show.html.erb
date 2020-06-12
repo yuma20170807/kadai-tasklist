@@ -1,15 +1,22 @@
+<div class='text-center'>
+    <h1>タスク詳細ページ</h1>
+</div>
+<table class='table mb-5'>
+    <tr>
+        <th class='text-center'>タスク内容</th>
+        <th class='text-center'>タスク状況</th>
+    </tr>
+    <tr>
+        <td class='text-center'><%=@task.content%></td>
+        <td class='text-center'><%=@task.status%></td>
+    </tr>
+</table>
 
-<h1>タスク詳細ページ</h1>
+<div class='row'>
+<%=link_to '一覧に戻る',tasks_path,class:'btn btn-primary btn-block col-sm-2 offset-sm-1'%>
 
-<h2>ステータス：<%=@task.status%></h2>
+<%=link_to 'このタスクを編集する',edit_task_path(@task),class:'btn btn-primary btn-block col-sm-2 offset-sm-2'%>
 
-<h3>タスク：<%=@task.content%></h3>
-
-
-<%=link_to '一覧に戻る', tasks_path%>
-
-<%=link_to 'このタスクを編集する',edit_task_path(@task)%>
-
-<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-
+<%= link_to 'このタスクを削除する',@task,method: :delete,data:{confirm: '本当に削除してよろしいですか？' } ,class:'btn btn-primary btn-block col-sm-2 offset-sm-2'%>
+</div>
 

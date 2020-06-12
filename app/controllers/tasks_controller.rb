@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
+    before_action :current_user ,only:[:index]
     before_action :require_user_logged_in
     before_action :correct_user ,only:[:show,:edit,:update,:destroy]
     
     
     def index
         @tasks = current_user.tasks.order(id: :desc)
-    end
-    def show
+        counts(@current_user)
     end
     def create
         @task=current_user.tasks.build(task_params)
@@ -21,8 +21,6 @@ class TasksController < ApplicationController
     end
     def new
         @task=Task.new
-    end
-    def edit
     end
     def update
         if @task.update(task_params)

@@ -1,13 +1,23 @@
-<h1>タスク一覧</h1>
-
-<ul>
+<div class='text-center'>
+    <h1><%=@current_user.name%>さんのタスク一覧</h1>
+    <h2>残りタスク数 : <%=@count_tasks%></h2>
+</div>
+<table class='table mb-5 table-striped table-sm table-bordered table-hover'>
+    <tr>
+        <th class='text-center'>タスクID</th>
+        <th class='text-center'>タスク内容</th>
+        <th class='text-center'>タスク状況</th>
+    </tr>
     <% num=1%>
     <%@tasks.each do |task|%>
-    <li><%=link_to num ,task%>:
-        <%=task.content%>:<%=task.status%></li>
-        <%num+=1%>
+    <tr>
+        <td class='text-center'><%=link_to num ,task%></td>
+        <td class='text-right'><%=task.content%></td>
+        <td class='text-right'><%=task.status%></td>
+        <% num+=1%>
+    </tr>
     <%end%>
-</ul>
-
-
-<%=link_to '新規タスクの追加' ,new_task_path%>
+</table>
+<div class='row'>
+    <%=link_to '新規タスクの追加' ,new_task_path , class:'btn btn-block btn-primary col-sm-3 offset-sm-9'%>
+</div>
