@@ -1,7 +1,7 @@
 <div class='text-center'>
     <h1>タスク詳細ページ</h1>
 </div>
-<table class='table mb-5'>
+<table class='table'>
     <tr>
         <th class='text-center'>タスク内容</th>
         <th class='text-center'>タスク状況</th>
@@ -13,10 +13,25 @@
 </table>
 
 <div class='row'>
-<%=link_to '一覧に戻る',tasks_path,class:'btn btn-primary btn-block col-sm-2 offset-sm-1'%>
+    
+    <%=link_to '一覧に戻る',tasks_path,class:'btn btn-primary col-2 offset-1'%>
 
-<%=link_to 'このタスクを編集する',edit_task_path(@task),class:'btn btn-primary btn-block col-sm-2 offset-sm-2'%>
+    <%=link_to 'このタスクを編集する',edit_task_path(@task),class:'btn btn-primary  col-2 offset-2'%>
 
-<%= link_to 'このタスクを削除する',@task,method: :delete,data:{confirm: '本当に削除してよろしいですか？' } ,class:'btn btn-primary btn-block col-sm-2 offset-sm-2'%>
+    <%= link_to'このタスクを削除する',@task,method: :delete,data:{confirm: '本当に削除してよろしいですか？' } ,class:'btn btn-primary col-2 offset-2'%>
 </div>
 
+<!--<style>-->
+<!--    .test {-->
+<!--        display: -webkit-flex;-->
+<!--        display: flex;-->
+<!--        -webkit-justify-content: center;-->
+<!--        justify-content: center;-->
+<!--        -webkit-align-items: center;-->
+<!--        align-items: center;-->
+<!--        height: 200px;-->
+<!--    }-->
+<!--    .btn {-->
+<!--        padding: 10px;-->
+<!--    }-->
+<!--</style>-->
