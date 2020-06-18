@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     
     def index
         @tasks = current_user.tasks.where.not(status: "完了").order(id: :desc)
-        counts(@current_user)
+        non_completed_counts(@tasks)
     end
     def create
         @task=current_user.tasks.build(task_params)
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
     
     def complete
         @tasks = current_user.tasks.where(status: '完了')
-        count_tasks(@tasks)
+        completed_counts(@tasks)
     end
     
     private

@@ -9,15 +9,12 @@ class ApplicationController < ActionController::Base
         end
     end
     
-    def counts(user)
-        @count_tasks=user.tasks.count
+    def non_completed_counts(tasks)
+        @count_tasks=tasks.where.not(status: '完了').count
     end
     
-    def count_tasks(tasks)
-        @task_num=0
-        tasks.each do |f|
-            @task_num+=1
-        end
+    def completed_counts(tasks)
+        @task_num=tasks.where(status: '完了').count
     end
     
 end
