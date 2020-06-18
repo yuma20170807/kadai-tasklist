@@ -1,0 +1,23 @@
+<div class='text-center'>
+    <h1><%=@current_user.name%>さんの完了済タスク一覧</h1>
+    <h2>完了済タスク数 : <%=@task_num%></h2>
+</div>
+<table class='table mb-5 table-striped table-sm table-bordered table-hover'>
+    <tr>
+        <th class='text-center'>タスクID</th>
+        <th class='text-center'>タスク内容</th>
+        <th class='text-center'>タスク状況</th>
+    </tr>
+    <% num=1%>
+    <%@tasks.each do |task|%>
+    <tr>
+        <td class='text-center'><%=link_to num ,task%></td>
+        <td class='text-right'><%=task.content%></td>
+        <td class='text-right'><%=task.status%></td>
+        <% num+=1%>
+    </tr>
+    <%end%>
+</table>
+<div class='row mt-5 '>
+    <%=link_to '新規タスク' ,new_task_path , class:'btn btn-primary col-4 offset-8'%>
+</div>

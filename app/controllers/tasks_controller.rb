@@ -5,7 +5,7 @@ class TasksController < ApplicationController
     
     
     def index
-        @tasks = current_user.tasks.order(id: :desc)
+        @tasks = current_user.tasks.where.not(status: "完了").order(id: :desc)
         counts(@current_user)
     end
     def create
@@ -37,6 +37,12 @@ class TasksController < ApplicationController
         flash[:success]='Taskは正常に削除されました'
         redirect_to tasks_url
     end
+    
+    def complete
+        @tasks = current_user.tasks.where(status: '完了')
+        count_tasks(@tasks)
+    end
+    
     private
     def task_params
         params.require(:task).permit(:content,:status)

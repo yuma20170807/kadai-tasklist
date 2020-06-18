@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
         @count_tasks=user.tasks.count
     end
     
+    def count_tasks(tasks)
+        @task_num=0
+        tasks.each do |f|
+            @task_num+=1
+        end
+    end
+    
 end
