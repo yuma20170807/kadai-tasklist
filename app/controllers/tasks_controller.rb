@@ -10,6 +10,9 @@ class TasksController < ApplicationController
     end
     def create
         @task=current_user.tasks.build(task_params)
+        #2020-6-23 add deadline
+        @tasks.status='未完了'
+        #----------------------
         if @task.save
             flash[:success] ='Taskが正常に追加されました'
             redirect_to @task
